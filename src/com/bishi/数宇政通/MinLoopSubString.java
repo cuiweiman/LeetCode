@@ -1,4 +1,4 @@
-package com.leetcode.bishi.数宇政通;
+package com.bishi.数宇政通;
 
 import java.util.ArrayList;
 import java.util.HashSet;
