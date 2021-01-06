@@ -68,7 +68,7 @@ public class LeetCode072 {
         String word1 = "horse";
         String word2 = "ros";
         int minDistance = minDistance(word1, word2);
-        System.out.println(word1 + " compareTo " + word2 + " = " + minDistance);
+        System.out.println(word1 + "  " + word2 + "  " + minDistance);
     }
 
     public static int minDistance(String word1, String word2) {
@@ -95,9 +95,11 @@ public class LeetCode072 {
                     temp = 1;
                 }
                 dp[i][j] = min(dp[i - 1][j] + 1, dp[i][j - 1] + 1, dp[i - 1][j - 1] + temp);
-                System.out.println(dp[i][j]);
             }
         }
+
+        double similarity = 1 - (double) dp[n][m] / Math.max(m, n);
+        System.out.println("两个字符串相似度为：" + similarity);
         return dp[n][m];
     }
 
