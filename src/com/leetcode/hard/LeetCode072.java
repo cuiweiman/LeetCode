@@ -94,7 +94,10 @@ public class LeetCode072 {
                 } else {
                     temp = 1;
                 }
-                dp[i][j] = min(dp[i - 1][j] + 1, dp[i][j - 1] + 1, dp[i - 1][j - 1] + temp);
+                // 运行时间 12 ms，内存消耗 39.8MB
+                // dp[i][j] = min(dp[i - 1][j] + 1, dp[i][j - 1] + 1, dp[i - 1][j - 1] + temp);
+                // 运行时间 6ms， 内存消耗 38.5MB
+                dp[i][j] = Math.min(dp[i - 1][j] + 1, Math.min(dp[i][j - 1] + 1, dp[i - 1][j - 1] + temp));
             }
         }
 
@@ -103,7 +106,7 @@ public class LeetCode072 {
         return dp[n][m];
     }
 
-    public static int min(int... args) {
+    /*public static int min(int... args) {
         int min = Integer.MAX_VALUE;
         for (int arg : args) {
             if (min > arg) {
@@ -111,6 +114,6 @@ public class LeetCode072 {
             }
         }
         return min;
-    }
+    }*/
 
 }
