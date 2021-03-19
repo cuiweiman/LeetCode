@@ -1,4 +1,4 @@
-package com.niuke;
+package com.niuke.bytedance;
 
 import java.util.*;
 
