@@ -30,8 +30,9 @@ public class BinaryTree {
         // List<Integer> list = root.levelTraversal();
         // List<Integer> list = root.frontTraversal();
         // List<Integer> list = root.midTraversal();
-        List<Integer> list = root.afterTraversal();
-        list.forEach(System.out::println);
+        // List<Integer> list = root.afterTraversal();
+        List<List<Integer>> list = root.levelTraversal2();
+        System.out.println(list);
     }
 }
 
@@ -75,6 +76,30 @@ class Node {
             }
         }
         return list;
+    }
+
+
+    public List<List<Integer>> levelTraversal2() {
+        Queue<Node> queue = new LinkedList<>();
+        List<List<Integer>> res = new ArrayList<>();
+        queue.add(this);
+        while (!queue.isEmpty()) {
+            int count = queue.size();
+            List<Integer> list = new ArrayList<>();
+            while (count > 0) {
+                Node poll = queue.poll();
+                list.add(poll.val);
+                if (poll.left != null) {
+                    queue.add(poll.left);
+                }
+                if (poll.right != null) {
+                    queue.add(poll.right);
+                }
+                count--;
+            }
+            res.add(list);
+        }
+        return res;
     }
 
     public List<Integer> frontTraversal() {
