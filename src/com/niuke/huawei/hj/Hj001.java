@@ -1,4 +1,4 @@
-package com.niuke.huawei;
+package com.niuke.huawei.hj;
 
 import java.io.IOException;
 import java.io.InputStream;

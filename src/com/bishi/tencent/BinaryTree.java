@@ -1,5 +1,7 @@
 package com.bishi.tencent;
 
+import com.niuke.huawei.nc.Nc045;
+
 import java.util.*;
 
 /**
@@ -8,6 +10,8 @@ import java.util.*;
  *      1               6
  *          8       4       2
  * </pre>
+ * <p>
+ * 更好的解决思路：{@link Nc045}
  *
  * @description: 二叉树 非递归 遍历
  * @date: 2021/3/22 21:24
