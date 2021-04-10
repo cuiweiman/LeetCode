@@ -10,7 +10,49 @@ import java.util.Objects;
 public class Palindrome {
 
     public static void main(String[] args) {
-        System.out.println(hui("btabcddcbatb"));
+        System.out.println(hui("abtabcdedcbatb"));
+        System.out.println(hui2("abtabcdedcbatb"));
+    }
+
+    /**
+     * 中心扩散
+     *
+     * @param str 字符串
+     * @return 最长回文子串
+     */
+    public static String hui2(String str) {
+        if (Objects.equals(str, "")) {
+            return str;
+        }
+        int l = 0;
+        int r = 1;
+        int maxLen = 1;
+        for (int i = 0; i < str.length(); i++) {
+            int left = i - 1;
+            int right = i + 1;
+            while (left >= 0 && right < str.length() && str.charAt(left) == str.charAt(right)) {
+                if (right - left + 1 > maxLen) {
+                    maxLen = right - left + 1;
+                    l = left;
+                    r = right;
+                }
+                left--;
+                right++;
+            }
+
+            left = i;
+            right = i + 1;
+            while (left >= 0 && right < str.length() && str.charAt(left) == str.charAt(right)) {
+                if (right - left + 1 > maxLen) {
+                    maxLen = right - left + 1;
+                    l = left;
+                    r = right;
+                }
+                left--;
+                right++;
+            }
+        }
+        return str.substring(l, r + 1);
     }
 
     /**

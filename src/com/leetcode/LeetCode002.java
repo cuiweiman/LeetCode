@@ -27,27 +27,27 @@ import java.util.Objects;
 public class LeetCode002 {
 
     public static void main(String[] args) {
-        ListNode x1 = new ListNode(2);
-        ListNode x2 = new ListNode(4);
-        ListNode x3 = new ListNode(3);
+        ListNode2 x1 = new ListNode2(2);
+        ListNode2 x2 = new ListNode2(4);
+        ListNode2 x3 = new ListNode2(3);
         x1.next = x2;
         x2.next = x3;
-        ListNode y1 = new ListNode(5);
-        ListNode y2 = new ListNode(6);
-        ListNode y3 = new ListNode(4);
+        ListNode2 y1 = new ListNode2(5);
+        ListNode2 y2 = new ListNode2(6);
+        ListNode2 y3 = new ListNode2(4);
         y1.next = y2;
         y2.next = y3;
 
-        ListNode listNode = addTwoNumbers(x1, y1);
+        ListNode2 listNode = addTwoNumbers(x1, y1);
         while (listNode != null) {
             System.out.println(listNode.val);
             listNode = listNode.next;
         }
     }
 
-    public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        ListNode root = new ListNode(0);
-        ListNode cursor = root;
+    public static ListNode2 addTwoNumbers(ListNode2 l1, ListNode2 l2) {
+        ListNode2 root = new ListNode2(0);
+        ListNode2 cursor = root;
         int carry = 0;
 
         while (Objects.nonNull(l1) || Objects.nonNull(l2) || carry != 0) {
@@ -55,7 +55,7 @@ public class LeetCode002 {
             int val1 = Objects.nonNull(l1) ? l1.val : 0;
             int val2 = Objects.nonNull(l2) ? l2.val : 0;
             int sum = val1 + val2 + carry;
-            final ListNode node = new ListNode(sum % 10);
+            final ListNode2 node = new ListNode2(sum % 10);
             cursor.next = node;
             cursor = node;
             carry = sum / 10;
@@ -72,7 +72,7 @@ public class LeetCode002 {
 
 class ListNode {
     int val;
-    ListNode next;
+    ListNode2 next;
 
     ListNode() {
     }
@@ -81,7 +81,7 @@ class ListNode {
         this.val = val;
     }
 
-    ListNode(int val, ListNode next) {
+    ListNode(int val, ListNode2 next) {
         this.val = val;
         this.next = next;
     }
